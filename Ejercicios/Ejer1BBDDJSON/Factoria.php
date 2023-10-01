@@ -16,4 +16,8 @@ class Factoria{
     $personas = $personaDAOImpl->seleccionarPersonas(); 
     return json_encode($personas); 
   }
+
+  static function converPersonaJsonPersonaObject($personaJson){
+    return new Persona($personaJson["DNI"],$personaJson["Nombre"],$personaJson["Clave"],$personaJson["Tfno"]); 
+  }
 } 
