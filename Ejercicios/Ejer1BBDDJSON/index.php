@@ -33,7 +33,7 @@ if($requestMethod == "GET"){
     header('HTTP/1.1 '.$cod.' '.$mes); 
     $datosPersona = file_get_contents("php://input"); 
     $personaObject = Factoria::converPersonaJsonPersonaObject(json_decode($datosPersona,true)); 
-    $perosnaDAOImpl -> insertarPersona($personaObject); 
+    Factoria::insertarPersona($personaObject); 
 
   }elseif(count($argu) >= 1){
     $cod = 405;

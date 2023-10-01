@@ -17,6 +17,12 @@ class Factoria{
     return json_encode($personas); 
   }
 
+  static function insertarPersona($persona){
+    $personaDAOImpl = new PersonaDAOImpl(); 
+    $personaDAOImpl -> insertarPersona($persona); 
+
+  }
+
   static function converPersonaJsonPersonaObject($personaJson){
     return new Persona($personaJson["DNI"],$personaJson["Nombre"],$personaJson["Clave"],$personaJson["Tfno"]); 
   }
