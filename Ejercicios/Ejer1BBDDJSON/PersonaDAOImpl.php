@@ -48,4 +48,18 @@ class PersonaDAOImpl{
     ConexionBD::desconectar($conexion);
     return $personas; 
   }
+
+  public function borrarPersona($dni){
+    $conexion = ConexionBD::conectar();
+    $stmt = mysqli_prepare($conexion, Constantes::$borrarPersona);
+    mysqli_stmt_bind_param($stmt, "s", $dni);
+    
+    if (mysqli_stmt_execute($stmt)) {      
+        ConexionBD::desconectar($conexion);
+        return true;
+    } else {      
+        ConexionBD::desconectar($conexion);
+        return false;
+    }
+  }
 }

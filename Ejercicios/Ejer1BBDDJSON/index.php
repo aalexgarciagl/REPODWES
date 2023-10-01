@@ -27,9 +27,10 @@ if($requestMethod == "GET"){
   }
 
 }elseif($requestMethod == "POST"){
-  if(empty($argu[0])){
+  if(empty($argu[1])){
     $cod = 201;
-    $mes = "Correcto"; 
+    $mes = "Correcto";
+    header('HTTP/1.1 '.$cod.' '.$mes); 
     $datosPersona = file_get_contents("php://input"); 
     $personaObject = Factoria::converPersonaJsonPersonaObject(json_decode($datosPersona,true)); 
     $perosnaDAOImpl -> insertarPersona($personaObject); 
@@ -42,6 +43,27 @@ if($requestMethod == "GET"){
                       'mes' => $mes]);
   }
 
+}elseif($requestMethod == "DELETE"){
+  if(empty($argu[1])){
+    $cod = 400;
+    $mes = "Sin argumentos";
+    header('HTTP/1.1 '.$cod.' '.$mes);
+    echo json_encode(["cod" => $cod,
+                      "mes" => $mes]); 
+     
+  }elseif(count($argu) == 1){
+    $cod = 200;
+    $mes = "Oki";
+    header('HTTP/1.1 '.$cod.' '.$mes);
+    Factoria::borrarPersona($argu[1]); 
+
+  }  elseif(count($argu)>=2){
+    $cod = 405;
+    $mes = "Demasiados argumentos";
+    header('HTTP/1.1 '.$cod.' '.$mes);
+    echo json_encode(['cod' => $cod,
+                      'mes' => $mes]);
+  }
 }else{
   $cod = 405;
   $mes = "Verbo no soportado";

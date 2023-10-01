@@ -6,5 +6,6 @@ class Constantes{
 
   static $selecPersona = "SELECT * FROM personas WHERE DNI = ?";
   static $seleccAllPersonas = "SELECT * FROM personas"; 
-   
+  
+  static $borrarPersona = "DELETE FROM personas WHERE DNI = ?"; 
 }

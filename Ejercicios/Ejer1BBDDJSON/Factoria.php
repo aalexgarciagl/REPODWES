@@ -20,4 +20,9 @@ class Factoria{
   static function converPersonaJsonPersonaObject($personaJson){
     return new Persona($personaJson["DNI"],$personaJson["Nombre"],$personaJson["Clave"],$personaJson["Tfno"]); 
   }
-} 
+
+  static function borrarPersona($dni){
+    $personaDAOImpl = new PersonaDAOImpl(); 
+    $personaDAOImpl -> borrarPersona($dni);     
+  }
+}     

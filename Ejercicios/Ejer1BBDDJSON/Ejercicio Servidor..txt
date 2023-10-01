@@ -10,8 +10,13 @@ base de datos
 	-Verbo POST: La URL va vacia, le metemos un JSON que llevara un nombre, DNI, clave, telefono
 y estos datos se insertaran en la base de datos. El codigo de correcto es 201. 
 
+  VERBO POST COMPLETADO
+
 	-Verbo Delete: Le pasamos por el link el dni y borraremos los datos de esa persona de la base
 de datos. 
+   
+  VERBO DELETE COMPLETADO.
+	
 
 	-Verbo Put: Le metemos por parametro en la URL el dni, y en el JSON los nuevos datos que 
 queremos modificar, quitando el campo clave, en este caso el DNI. 
