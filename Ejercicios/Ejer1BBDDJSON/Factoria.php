@@ -25,4 +25,9 @@ class Factoria{
     $personaDAOImpl = new PersonaDAOImpl(); 
     $personaDAOImpl -> borrarPersona($dni);     
   }
+
+  static function updatePersona($dni,$nuevosDatos){
+    $personaDAOImpl = new PersonaDAOImpl(); 
+    $personaDAOImpl -> updatePersona($dni,json_decode($nuevosDatos,true)); 
+  }
 }     

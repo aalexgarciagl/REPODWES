@@ -62,4 +62,18 @@ class PersonaDAOImpl{
         return false;
     }
   }
+
+  public function updatePersona($dni,$nuevosDatos){
+    $conexion = ConexionBD::conectar();
+    $stmt = mysqli_prepare($conexion, Constantes::$updatePersona);
+    mysqli_stmt_bind_param($stmt, "siss",$nuevosDatos["Nombre"],$nuevosDatos["Clave"],$nuevosDatos["Tfno"] ,$dni);
+
+    if (mysqli_stmt_execute($stmt)) {      
+      ConexionBD::desconectar($conexion);
+      return true;
+    } else {      
+      ConexionBD::desconectar($conexion);
+      return false;
+    }
+  }
 }

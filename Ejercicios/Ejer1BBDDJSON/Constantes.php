@@ -8,4 +8,5 @@ class Constantes{
   static $seleccAllPersonas = "SELECT * FROM personas"; 
   
   static $borrarPersona = "DELETE FROM personas WHERE DNI = ?"; 
+  static $updatePersona = "UPDATE personas SET Nombre = ?, Clave = ?, Tfno = ? WHERE DNI = ?";
 }

@@ -64,6 +64,26 @@ if($requestMethod == "GET"){
     echo json_encode(['cod' => $cod,
                       'mes' => $mes]);
   }
+
+}elseif($requestMethod == "PUT"){
+  if(empty($argu[1])){
+    $cod = 400;
+    $mes = "Sin argumentos";
+    header('HTTP/1.1 '.$cod.' '.$mes);
+    
+  }elseif(count($argu)>=2){
+    $cod = 405;
+    $mes = "Demasiados argumentos";
+    header('HTTP/1.1 '.$cod.' '.$mes);
+    echo json_encode(['cod' => $cod,
+                      'mes' => $mes]);
+  }else{    
+    header('HTTP/1.1 '.'200'.' '.'OKi');
+    $nuevosDatos = file_get_contents("php://input"); 
+    Factoria::updatePersona($argu[1],$nuevosDatos);    
+    
+  }
+
 }else{
   $cod = 405;
   $mes = "Verbo no soportado";

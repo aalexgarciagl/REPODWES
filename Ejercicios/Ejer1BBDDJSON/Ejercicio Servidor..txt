@@ -20,4 +20,6 @@ de datos.
 
 	-Verbo Put: Le metemos por parametro en la URL el dni, y en el JSON los nuevos datos que 
 queremos modificar, quitando el campo clave, en este caso el DNI. 
+
+ VERBO PUT COMPLETADO
 	
