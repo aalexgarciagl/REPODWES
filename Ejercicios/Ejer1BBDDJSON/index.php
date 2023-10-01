@@ -4,7 +4,6 @@ require "Factoria.php";
 header("Content-Type:application/json");
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 $paths = $_SERVER['REQUEST_URI'];
-$perosnaDAOImpl = new PersonaDAOImpl(); 
 $argu = explode("/",$paths);
 unset($argu[0]); 
 
@@ -70,6 +69,8 @@ if($requestMethod == "GET"){
     $cod = 400;
     $mes = "Sin argumentos";
     header('HTTP/1.1 '.$cod.' '.$mes);
+    echo json_encode(["cod" => $cod,
+                      "mes" => $mes]); 
     
   }elseif(count($argu)>=2){
     $cod = 405;
