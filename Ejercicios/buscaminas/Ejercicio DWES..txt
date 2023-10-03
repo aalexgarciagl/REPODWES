@@ -1,0 +1,6 @@
+Ejercicio DWES.
+	El tablero sera un vector. 
+	Como cliente quiero decirle a la web que me genere un tablero de buscaminas.
+	Si no digo nada que genere un tablero de 10 con 2 minas.
+	Lo podemos personalizar, le podemos decir que tenga 10 casillas y 9 minas. 
+	Desde el cliente le pasamos la peticion de que casilla queremos tirar, el servidor devolvera el estado del tablero. 
